@@ -12,7 +12,7 @@
             --primary: #6366f1;
             --success: #10b981;
             --danger: #f43f5e;
-            --bg: #f8fafc;
+            --bg: #f1f5f9;
         }
 
         body {
@@ -30,37 +30,32 @@
             max-width: 380px;
             background: white;
             padding: 40px 25px;
-            border-radius: 40px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            border-radius: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             text-align: center;
         }
 
-        /* Calendar Widget */
         .calendar-widget {
-            width: 90px;
+            width: 95px;
             margin: 0 auto 25px;
             background: white;
-            border-radius: 18px;
+            border-radius: 20px;
             overflow: hidden;
-<<<<<<< HEAD
             border: 1px solid #e2e8f0;
-=======
-            border: 1px solid #e5e7eb;
->>>>>>> parent of ee7a686 (Update index.html)
         }
 
-        .cal-month { background: var(--primary); color: white; padding: 5px; font-size: 0.75rem; font-weight: bold; }
-        .cal-day { font-size: 2.2rem; font-weight: 800; color: #1f2937; padding: 8px 0; }
+        .cal-month { background: var(--primary); color: white; padding: 6px; font-size: 0.8rem; font-weight: bold; }
+        .cal-day { font-size: 2.4rem; font-weight: 800; color: #1e293b; padding: 10px 0; }
 
-        h2 { color: #1f2937; font-size: 1.3rem; margin-bottom: 25px; }
+        h2 { color: #1e293b; font-size: 1.4rem; margin-bottom: 25px; }
 
         input {
             width: 100%;
             padding: 18px;
             margin-bottom: 20px;
-            border: 2px solid #e5e7eb;
+            border: 2px solid #f1f5f9;
             border-radius: 18px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-align: center;
             box-sizing: border-box;
             background: #f8fafc;
@@ -70,7 +65,7 @@
         .btn-check {
             width: 100%;
             padding: 18px;
-            background: var(--primary);
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
             color: white;
             border: none;
             border-radius: 18px;
@@ -79,16 +74,12 @@
             cursor: pointer;
         }
 
-<<<<<<< HEAD
-        /* Modal */
-=======
         /* Modal Structure */
->>>>>>> parent of ee7a686 (Update index.html)
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(6px);
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(8px);
             display: none;
             justify-content: center;
             align-items: center;
@@ -99,31 +90,27 @@
             background: white;
             width: 85%;
             max-width: 340px;
-            padding: 35px 20px;
+            padding: 35px 25px;
             border-radius: 35px;
             text-align: center;
-<<<<<<< HEAD
             animation: popUp 0.3s ease-out;
-=======
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
->>>>>>> parent of ee7a686 (Update index.html)
         }
 
-        .modal-icon { font-size: 4rem; margin-bottom: 10px; display: block; }
-        .modal-msg { font-size: 1.1rem; color: #374151; margin-bottom: 25px; line-height: 1.5; }
-        .car-tag { font-weight: 800; color: #000; font-size: 1.3rem; display: block; margin: 5px 0; }
+        @keyframes popUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        .modal-icon { font-size: 4.5rem; margin-bottom: 15px; display: block; }
+        .modal-msg { font-size: 1.15rem; color: #334155; margin-bottom: 30px; line-height: 1.6; }
+        .car-tag { font-weight: 800; color: #0f172a; font-size: 1.4rem; display: block; margin: 8px 0; border-bottom: 2px solid #f1f5f9; padding-bottom: 5px; }
 
         .btn-group { display: flex; flex-direction: column; gap: 12px; }
 
-        /* အချိန်စာရင်းခလုတ် - ထင်ရှားသောအရောင် */
         .btn-pdf { 
             padding: 16px; 
             background: #1e293b; 
             color: white; 
             border: none; 
-            border-radius: 15px; 
+            border-radius: 16px; 
             font-weight: bold; 
-<<<<<<< HEAD
             cursor: pointer;
         }
 
@@ -134,33 +121,8 @@
             border: 1px solid #e2e8f0; 
             border-radius: 16px; 
             font-weight: 600; 
-=======
-            font-size: 1rem;
->>>>>>> parent of ee7a686 (Update index.html)
             cursor: pointer;
         }
-<<<<<<< HEAD
-=======
-
-        /* ပိတ်မယ်ခလုတ် - အရောင်ဖျော့ဖျော့ */
-        .btn-close { 
-            padding: 12px; 
-            background: #f1f5f9; /* Light grey background */
-            color: #94a3b8;      /* Muted text color */
-            border: 1px solid #e2e8f0; 
-            border-radius: 15px; 
-            font-weight: 600; 
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-close:hover {
-            background: #e2e8f0;
-            color: #64748b;
-        }
-
->>>>>>> parent of ee7a686 (Update index.html)
     </style>
 </head>
 <body>
@@ -171,7 +133,7 @@
         <div id="dayLabel" class="cal-day">00</div>
     </div>
     <h2>ယာဉ်မောင်းနှင်ခွင့် စစ်ဆေးမည်</h2>
-    <input type="text" id="carInput" placeholder="ဥပမာ- 21A/1234">
+    <input type="text" id="carInput" placeholder="ဥပမာ- 21A/1234" autocomplete="off">
     <button class="btn-check" onclick="runCheck()">စစ်ဆေးမည်</button>
 </div>
 
@@ -187,7 +149,6 @@
 </div>
 
 <script>
-    // (JavaScript logic remains the same as previously provided)
     const today = new Date();
     const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     document.getElementById('dayLabel').innerText = today.getDate();
@@ -197,14 +158,17 @@
 
     function runCheck() {
         currentInput = document.getElementById('carInput').value.trim();
-        if (!currentInput) return alert("နံပါတ်ရိုက်ထည့်ပါ");
+        if (!currentInput) return alert("ယာဉ်နံပါတ် ရိုက်ထည့်ပါ");
         const firstDigit = parseInt(currentInput.charAt(0));
         if (isNaN(firstDigit)) return alert("ဂဏန်းဖြင့် စတင်ရပါမည်");
+        
         const isDateEven = (today.getDate() % 2 === 0);
         const isCarEven = (firstDigit % 2 === 0);
+        
         document.getElementById('modalOverlay').style.display = 'flex';
         const mIcon = document.getElementById('mIcon');
         const mText = document.getElementById('mText');
+
         if (isCarEven === isDateEven) {
             mIcon.innerText = "✅";
             mText.innerHTML = `သင့်ယာဉ်နံပါတ် <span class="car-tag">${currentInput.toUpperCase()}</span> <span style="color:#10b981; font-weight:bold;">ယနေ့ မောင်းနှင်ခွင့်ရှိပါသည်။</span>`;
@@ -214,20 +178,16 @@
         }
     }
 
-    // PDF Logic with Myanmar Text Support
+    // PDF Generation (English Status for Font Compatibility)
     function generatePDF() {
         const { jsPDF } = window.jspdf;
-        // Myanmar font supporting Unicode is needed for perfect rendering. 
-        // For simplicity, we use standard autoTable formatting with custom labels.
         const doc = new jsPDF();
         const year = today.getFullYear();
         const month = today.getMonth();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const firstDigit = parseInt(currentInput.charAt(0));
         const isCarEven = (firstDigit % 2 === 0);
-<<<<<<< HEAD
 
-        // PDF Title (Using English for labels to ensure no font breaking, but statuses will be targeted)
         doc.setFontSize(16);
         doc.text(`Vehicle Schedule: ${currentInput.toUpperCase()}`, 14, 15);
         doc.setFontSize(10);
@@ -236,42 +196,26 @@
         const data = [];
         for (let i = 1; i <= daysInMonth; i++) {
             const canDrive = (isCarEven === (i % 2 === 0));
-            // Setting the Myanmar phrases
-            const statusText = canDrive ? "Allowed" : "Not Allowed"; 
-            const mmStatusText = canDrive ? "Driveable" : "Restricted"; // Placeholder for logic
-            
-            data.push([`${i} ${months[month]} ${year}`, canDrive ? "မောင်းနှင်ခွင့်ရှိသည်" : "မောင်းနှင်ခွင့်မရှိ"]);
-=======
-        doc.text(`Vehicle Schedule: ${currentInput.toUpperCase()}`, 14, 15);
-        const data = [];
-        for (let i = 1; i <= daysInMonth; i++) {
-            const canDrive = (isCarEven === (i % 2 === 0));
-            data.push([`${i} ${months[month]}`, canDrive ? "Allowed" : "Not Allowed"]);
->>>>>>> parent of ee7a686 (Update index.html)
+            // Status ကို English လိုပဲ ပြန်ပြောင်းထားသည်
+            data.push([`${i} ${months[month]} ${year}`, canDrive ? "Allowed" : "Not Allowed"]);
         }
+
         doc.autoTable({
-<<<<<<< HEAD
             startY: 30,
-            head: [['Date', 'Status']],
+            head: [['Date', 'Drive Status']],
             body: data,
             theme: 'grid',
-            styles: { font: 'helvetica', fontSize: 10 }, // Note: Standard fonts might need embedding for MM characters
             headStyles: { fillColor: [30, 41, 59] },
             didParseCell: function(data) {
                 if (data.column.index === 1) {
-                    const val = data.cell.raw;
-                    if (val === "မောင်းနှင်ခွင့်ရှိသည်") {
-                        data.cell.styles.fillColor = [16, 185, 129]; // Green
+                    const status = data.cell.raw;
+                    if (status === "Allowed") {
+                        data.cell.styles.fillColor = [16, 185, 129]; // Green Background
                     } else {
-                        data.cell.styles.fillColor = [244, 63, 94]; // Red
+                        data.cell.styles.fillColor = [244, 63, 94]; // Red Background
                     }
-=======
-            startY: 25, head: [['Date', 'Status']], body: data, theme: 'grid',
-            didParseCell: function(data) {
-                if (data.column.index === 1) {
-                    data.cell.styles.fillColor = data.cell.raw === "Allowed" ? [16, 185, 129] : [244, 63, 94];
->>>>>>> parent of ee7a686 (Update index.html)
-                    data.cell.styles.textColor = [255, 255, 255];
+                    data.cell.styles.textColor = [255, 255, 255]; // White Text
+                    data.cell.styles.fontStyle = 'bold';
                 }
             }
         });
@@ -280,6 +224,7 @@
     }
 
     function closeModal() { document.getElementById('modalOverlay').style.display = 'none'; }
+    window.onclick = function(e) { if(e.target == document.getElementById('modalOverlay')) closeModal(); }
 </script>
 
 </body>
