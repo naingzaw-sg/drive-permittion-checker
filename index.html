@@ -12,7 +12,7 @@
             --primary: #6366f1;
             --success: #10b981;
             --danger: #f43f5e;
-            --bg: #f1f5f9;
+            --bg: #f8fafc;
         }
 
         body {
@@ -30,8 +30,8 @@
             max-width: 380px;
             background: white;
             padding: 40px 25px;
-            border-radius: 35px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
@@ -75,11 +75,11 @@
             cursor: pointer;
         }
 
-        /* Modal */
+        /* Modal Structure */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(6px);
             display: none;
             justify-content: center;
@@ -91,18 +91,49 @@
             background: white;
             width: 85%;
             max-width: 340px;
-            padding: 30px 20px;
-            border-radius: 30px;
+            padding: 35px 20px;
+            border-radius: 35px;
             text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         .modal-icon { font-size: 4rem; margin-bottom: 10px; display: block; }
         .modal-msg { font-size: 1.1rem; color: #374151; margin-bottom: 25px; line-height: 1.5; }
         .car-tag { font-weight: 800; color: #000; font-size: 1.3rem; display: block; margin: 5px 0; }
 
-        .btn-group { display: flex; flex-direction: column; gap: 10px; }
-        .btn-pdf { padding: 15px; background: #1e293b; color: white; border: none; border-radius: 15px; font-weight: bold; cursor: pointer; }
-        .btn-close { padding: 12px; background: #f1f5f9; color: #475569; border: none; border-radius: 15px; font-weight: bold; cursor: pointer; }
+        .btn-group { display: flex; flex-direction: column; gap: 12px; }
+
+        /* အချိန်စာရင်းခလုတ် - ထင်ရှားသောအရောင် */
+        .btn-pdf { 
+            padding: 16px; 
+            background: #1e293b; 
+            color: white; 
+            border: none; 
+            border-radius: 15px; 
+            font-weight: bold; 
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        /* ပိတ်မယ်ခလုတ် - အရောင်ဖျော့ဖျော့ */
+        .btn-close { 
+            padding: 12px; 
+            background: #f1f5f9; /* Light grey background */
+            color: #94a3b8;      /* Muted text color */
+            border: 1px solid #e2e8f0; 
+            border-radius: 15px; 
+            font-weight: 600; 
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-close:hover {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
     </style>
 </head>
 <body>
@@ -129,6 +160,7 @@
 </div>
 
 <script>
+    // (JavaScript logic remains the same as previously provided)
     const today = new Date();
     const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     document.getElementById('dayLabel').innerText = today.getDate();
@@ -139,17 +171,13 @@
     function runCheck() {
         currentInput = document.getElementById('carInput').value.trim();
         if (!currentInput) return alert("နံပါတ်ရိုက်ထည့်ပါ");
-
         const firstDigit = parseInt(currentInput.charAt(0));
         if (isNaN(firstDigit)) return alert("ဂဏန်းဖြင့် စတင်ရပါမည်");
-
         const isDateEven = (today.getDate() % 2 === 0);
         const isCarEven = (firstDigit % 2 === 0);
-        
         document.getElementById('modalOverlay').style.display = 'flex';
         const mIcon = document.getElementById('mIcon');
         const mText = document.getElementById('mText');
-
         if (isCarEven === isDateEven) {
             mIcon.innerText = "✅";
             mText.innerHTML = `သင့်ယာဉ်နံပါတ် <span class="car-tag">${currentInput.toUpperCase()}</span> <span style="color:#10b981; font-weight:bold;">ယနေ့ မောင်းနှင်ခွင့်ရှိပါသည်။</span>`;
@@ -167,38 +195,21 @@
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const firstDigit = parseInt(currentInput.charAt(0));
         const isCarEven = (firstDigit % 2 === 0);
-
-        doc.setFontSize(16);
         doc.text(`Vehicle Schedule: ${currentInput.toUpperCase()}`, 14, 15);
-        doc.setFontSize(12);
-        doc.text(`Month: ${months[month]} ${year}`, 14, 23);
-
         const data = [];
         for (let i = 1; i <= daysInMonth; i++) {
             const canDrive = (isCarEven === (i % 2 === 0));
             data.push([`${i} ${months[month]}`, canDrive ? "Allowed" : "Not Allowed"]);
         }
-
         doc.autoTable({
-            startY: 30,
-            head: [['Date', 'Status']],
-            body: data,
-            theme: 'grid',
+            startY: 25, head: [['Date', 'Status']], body: data, theme: 'grid',
             didParseCell: function(data) {
                 if (data.column.index === 1) {
-                    const status = data.cell.raw;
-                    if (status === "Allowed") {
-                        data.cell.styles.fillColor = [16, 185, 129]; // Green Background
-                        data.cell.styles.textColor = [255, 255, 255]; // White Text
-                    } else {
-                        data.cell.styles.fillColor = [244, 63, 94]; // Red Background
-                        data.cell.styles.textColor = [255, 255, 255]; // White Text
-                    }
-                    data.cell.styles.fontStyle = 'bold';
+                    data.cell.styles.fillColor = data.cell.raw === "Allowed" ? [16, 185, 129] : [244, 63, 94];
+                    data.cell.styles.textColor = [255, 255, 255];
                 }
             }
         });
-
         doc.save(`${currentInput}_Schedule.pdf`);
     }
 
